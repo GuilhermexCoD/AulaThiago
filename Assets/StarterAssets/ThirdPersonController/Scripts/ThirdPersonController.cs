@@ -59,6 +59,10 @@ namespace StarterAssets
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
 
+        [Header("Player Crouched")]
+        [Tooltip("If the character is crouched or not.")]
+        public bool Crouched = false;
+
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
@@ -97,8 +101,10 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDJab;
+        private int _animIDCrouch;
 
-#if ENABLE_INPUT_SYSTEM 
+#if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
@@ -159,6 +165,21 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if (Input.GetMouseButtonDown(0) && Grounded)
+                _animator.SetTrigger(_animIDJab);
+
+            if (Input.GetKeyDown(KeyCode.LeftControl) && Grounded)
+            {
+                Crouched = !Crouched;
+                _animator.SetBool(_animIDCrouch, Crouched);
+            }
+
+            if (Crouched && _speed > 2f)
+            {
+                Crouched = false;
+                _animator.SetBool(_animIDCrouch, Crouched);
+            }
         }
 
         private void LateUpdate()
@@ -173,6 +194,9 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+
+            _animIDJab = Animator.StringToHash("Jab");
+            _animIDCrouch = Animator.StringToHash("Crouched");
         }
 
         private void GroundedCheck()
