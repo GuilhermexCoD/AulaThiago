@@ -1,4 +1,4 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -141,7 +141,7 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -158,6 +158,7 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+        //Chamado a cada frame
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
@@ -166,15 +167,39 @@ namespace StarterAssets
             GroundedCheck();
             Move();
 
-            if (Input.GetMouseButtonDown(0) && Grounded)
-                _animator.SetTrigger(_animIDJab);
+            //if (Input.GetMouseButtonDown(0) && Grounded)
+            //    _animator.SetTrigger(_animIDJab);
+            Crouch();
 
+        }
+
+        private void Crouch()
+        {
+            //Primeira vez apertando a tecla Left Ctrl
+            //Crouched = false
+            //Segunda vez apertando a tecla Left Ctrl
+            //Crouched = true
             if (Input.GetKeyDown(KeyCode.LeftControl) && Grounded)
             {
-                Crouched = !Crouched;
-                _animator.SetBool(_animIDCrouch, Crouched);
+                if (Crouched == true)
+                {
+                    Crouched = false;
+                }
+                else
+                {
+                    Crouched = true;
+                }
+
+                //Outra maneira de alterar a variavel Crouched
+                //Crouched = !Crouched;
+
+                _animator.SetBool("Crouched", Crouched);
+
+                //Outra forma de modificar o valor do booleano
+                //_animator.SetBool(_animIDCrouch, Crouched);
             }
 
+            //Condição para sair do estado de agachado
             if (Crouched && _speed > 2f)
             {
                 Crouched = false;
