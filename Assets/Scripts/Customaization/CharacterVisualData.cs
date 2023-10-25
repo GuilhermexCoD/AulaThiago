@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "SkinData", menuName = "ScriptableObjects/Skin", order = 1)]
+[CreateAssetMenu(fileName = "Character Skin Data", menuName = "ScriptableObjects/Create Skin", order = 1)]
 public class CharacterVisualData : ScriptableObject
 {
     public string skinName;
