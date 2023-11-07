@@ -1,22 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SkinMaterialUI : MonoBehaviour
 {
     public GameObject materialTogglePrefab;
+    
     public Transform materialToggleContainer;
+    
     public ToggleGroup materialToggleGroup;
+
+    public CharacterVisualData selectedSkin;
 
     private void Awake()
     {
-        PopulateSkinMaterial();
+        PopulateSkinMaterial(selectedSkin.materialColors);
     }
 
-    public void PopulateSkinMaterial()
+    public void SetSelectedSkin(CharacterVisualData skin)
     {
-        for (int i = 0; i < 10; i++)
+        selectedSkin = skin;
+        PopulateSkinMaterial(selectedSkin.materialColors);
+    }
+
+    public void PopulateSkinMaterial(Color[] colors)
+    {
+        for (int i = 0; i < colors.Length; i++)
         {
             GameObject clone = Instantiate(materialTogglePrefab, materialToggleContainer);
             Toggle materialToggle = clone.GetComponent<Toggle>();
@@ -25,7 +33,7 @@ public class SkinMaterialUI : MonoBehaviour
             Transform childBackground = materialToggle.transform.GetChild(1);
             Image backgroundImage = childBackground.GetComponent<Image>();
 
-            backgroundImage.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
+            backgroundImage.color = colors[i];
         }
     }
 }

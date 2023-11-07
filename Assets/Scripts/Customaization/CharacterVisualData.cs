@@ -7,4 +7,5 @@ public class CharacterVisualData : ScriptableObject
     public Sprite icon;
     public Mesh mesh;
     public Material[] materials;
+    public Color[] materialColors;
 }

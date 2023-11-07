@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 166336526}
   - component: {fileID: 166336525}
   - component: {fileID: 166336524}
+  - component: {fileID: 166336527}
   m_Layer: 5
   m_Name: Skins Scroll View
   m_TagString: Untagged
@@ -727,6 +728,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166336522}
   m_CullTransparentMesh: 1
+--- !u!114 &166336527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166336522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd1679edfeca51488f44a7ec71d6229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 644255877}
+  - {fileID: 971459943}
+  - {fileID: 1899553783}
+  selectedSkin: {fileID: 0}
 --- !u!1 &166474809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1376,7 @@ MonoBehaviour:
   materialTogglePrefab: {fileID: 922131155378427895, guid: 83a40b76c13d2c44c989adecf7e4241d, type: 3}
   materialToggleContainer: {fileID: 1946801445}
   materialToggleGroup: {fileID: 1946801448}
+  selectedSkin: {fileID: 11400000, guid: 28bf5a492b2bc2943b8685108def5b15, type: 2}
 --- !u!1 &340960673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2572,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 166336527}
+        m_TargetAssemblyTypeName: CharacterSkinSelectionUI, Assembly-CSharp
+        m_MethodName: SkinButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &644255877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2565,7 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b914254e401b7934db1f2af15ba6025e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skinData: {fileID: 11400000, guid: 28bf5a492b2bc2943b8685108def5b15, type: 2}
+  skinData: {fileID: 11400000, guid: 28bf5a492b2bc2943b8685108def5b15, type: 2}
   _iconImage: {fileID: 1581783619}
   _characterVisual: {fileID: 7172002984063483729}
 --- !u!1 &653369050
@@ -4260,7 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b914254e401b7934db1f2af15ba6025e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skinData: {fileID: 11400000, guid: daada62fe6acbbd4cb0727f995fd32d6, type: 2}
+  skinData: {fileID: 11400000, guid: daada62fe6acbbd4cb0727f995fd32d6, type: 2}
   _iconImage: {fileID: 878157638}
   _characterVisual: {fileID: 7172002984063483729}
 --- !u!114 &971459944
@@ -4315,6 +4346,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 166336527}
+        m_TargetAssemblyTypeName: CharacterSkinSelectionUI, Assembly-CSharp
+        m_MethodName: SkinButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7144,7 +7187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b914254e401b7934db1f2af15ba6025e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skinData: {fileID: 11400000, guid: 5c038db3d2cc31041b999b8bc34b38a6, type: 2}
+  skinData: {fileID: 11400000, guid: 5c038db3d2cc31041b999b8bc34b38a6, type: 2}
   _iconImage: {fileID: 64128960}
   _characterVisual: {fileID: 7172002984063483729}
 --- !u!114 &1899553784
@@ -7199,6 +7242,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 166336527}
+        m_TargetAssemblyTypeName: CharacterSkinSelectionUI, Assembly-CSharp
+        m_MethodName: SkinButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
