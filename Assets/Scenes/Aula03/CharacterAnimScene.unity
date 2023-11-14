@@ -1377,6 +1377,7 @@ MonoBehaviour:
   materialToggleContainer: {fileID: 1946801445}
   materialToggleGroup: {fileID: 1946801448}
   selectedSkin: {fileID: 11400000, guid: 28bf5a492b2bc2943b8685108def5b15, type: 2}
+  characterVisual: {fileID: 7172002984063483729}
 --- !u!1 &340960673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2292,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2016fbaa1e945cb4f807abf0a56b602e, type: 2}
+  - {fileID: 2100000, guid: a9a5d9bee1e50b64c805a29f9d393e3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

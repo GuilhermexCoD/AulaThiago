@@ -9,14 +9,19 @@ public class CharacterVisual : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
 
-    public void UpdateCharacterSkin(Mesh mesh, Material material)
+    public void UpdateCharacterSkin(Mesh mesh)
     {
         _mesh = mesh;
-        _material = material;
-
+        
         _skinnedMeshRenderer.forceMatrixRecalculationPerRender = true;
 
         _skinnedMeshRenderer.sharedMesh = _mesh;
+    }
+
+    public void UpdateCharacterMaterial(Material material) 
+    {
+        _material = material;
         _skinnedMeshRenderer.material = _material;
+        _skinnedMeshRenderer.forceMatrixRecalculationPerRender = true;
     }
 }

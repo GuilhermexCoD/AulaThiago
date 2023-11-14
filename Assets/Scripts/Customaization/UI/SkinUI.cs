@@ -22,10 +22,6 @@ public class SkinUI : MonoBehaviour
 
     public void ChangeSkinButton()
     {
-        Material[] materials = skinData.materials;
-        //0 - 14
-        int materialIndex = Random.Range(0, 15);
-        Material material = materials[materialIndex];
-        _characterVisual.UpdateCharacterSkin(skinData.mesh, material);
+        _characterVisual.UpdateCharacterSkin(skinData.mesh);
     }
 }
