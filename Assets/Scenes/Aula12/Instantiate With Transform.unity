@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7994294203940864072, guid: 6b913c7d5ea2f7443a0be96fe432a951, type: 3}
   initialPosition: {x: 0, y: 0, z: 0}
-  offset: {x: 5, y: 0, z: 5}
+  offset: {x: 3, y: 0, z: 3}
   quantity: 10
 --- !u!4 &350754475
 Transform:
