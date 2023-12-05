@@ -5,9 +5,6 @@ public class TransformScript : MonoBehaviour
     [Tooltip("O quanto o GameObject vai deslocar em um intervalo de tempo de 1 segundo.")]
     public float speed = 1f;
 
-    [Tooltip("Qual o FPS alvo do nosso jogo.")]
-    public int frameRateTarget;
-
     [Tooltip("Quanto tempo em segundos o GameObject vai se locomover.")]
     public float timeToMove;
 
@@ -16,18 +13,11 @@ public class TransformScript : MonoBehaviour
     /// </summary>
     private float elapsedTime;
 
-    //Apenas configurei o Target Frame Rate para explicacao
-    //Chamada antes de todos os metodos da Unity 
-    //Chamada ante do metodo Start
-    private void Awake()
-    {
-        Application.targetFrameRate = frameRateTarget;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Delta Time {Time.deltaTime}");
+        //Debug.Log($"Delta Time {Time.deltaTime}");
         MoveDeltaTime();
     }
 
@@ -66,6 +56,7 @@ public class TransformScript : MonoBehaviour
     {
         //jogo rodando em 10 FPS e
         //o cubo tem um incremento de 0.5f na posicao x
+        //FPS * speed * Time.deltaTime
         //10 * 0.5 * 0.1 = 0.5
         //30 * 0.5 * 0.033 = 0.495
         //250 * 0.5 * 0.0036 = 0.45
