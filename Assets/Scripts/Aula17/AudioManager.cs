@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Responsavel por configurar o volume dos Audio Mixer Group
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
     private const string kMasterVolumeKey = "MasterVolume";
@@ -13,21 +14,21 @@ public class AudioManager : MonoBehaviour
 
     public void SetMasterVolumeNormalized(float volumeNormalized)
     {
-        float interpolatedValue = Mathf.Lerp(-80, 0, volumeNormalized);
+        float interpolatedValue = Mathf.Log10(volumeNormalized) * 20f;
         SetMasterVolume(interpolatedValue);
         Debug.Log($"Value = {volumeNormalized} | Interpolated Value = {interpolatedValue}");
     }
 
     public void SetMusicVolumeNormalized(float volumeNormalized)
     {
-        float interpolatedValue = Mathf.Lerp(-80, 0, volumeNormalized);
+        float interpolatedValue = Mathf.Log10(volumeNormalized) * 20f;
         SetMusicVolume(interpolatedValue);
         Debug.Log($"Value = {volumeNormalized} | Interpolated Value = {interpolatedValue}");
     }
 
     public void SetSoundEffectVolumeNormalized(float volumeNormalized)
     {
-        float interpolatedValue = Mathf.Lerp(-80, 0, volumeNormalized);
+        float interpolatedValue = Mathf.Log10(volumeNormalized) * 20f;
         SetSoundEffectVolume(interpolatedValue);
         Debug.Log($"Value = {volumeNormalized} | Interpolated Value = {interpolatedValue}");
     }
